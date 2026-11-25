@@ -1,0 +1,39 @@
+cities:
+- zhengzhou
+- hangzhou
+- fuzhou
+- chengdu
+- wuhan
+return_periods:
+- 10
+- 20
+- 50
+- 100
+- 200
+sar:
+  origin_scope: city
+  excluded_road_types:
+  - motorway
+  - motorway_link
+  max_access_distance_m: 500.0
+  source_geometry_tolerance_m: 0.001
+  batch_size: 8
+  test_origin_limit: 8
+  distance_tolerance_m: 1.0e-06
+  risk_tolerance: 1.0e-10
+efar:
+  metric: inverse
+  local: include
+  same_grid_distance_m: 250.0
+  batch_size: 8
+composite:
+  permutations: 9999
+  city_seed_base: 20261012
+  alpha: 0.05
+  fdr: by
+  reference_cities:
+  - chengdu
+  - fuzhou
+  - hangzhou
+  - wuhan
+  - zhengzhou

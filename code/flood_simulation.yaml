@@ -1,0 +1,72 @@
+resolution_m: 30
+buffer_m: 1000
+rain_duration_min: 360
+simulation_duration_min: 720
+forcing_step_seconds: 600
+reference_time: '2010-01-01T00:00:00'
+return_periods:
+- 10
+- 20
+- 50
+- 100
+- 200
+soil_group: C
+initial_abstraction_ratio: 0.2
+manning_n: 0.04
+drainage_mm_h: 12
+drainage_codes:
+- 1
+- 5
+- 7
+water_codes:
+- 6
+water_fraction_threshold: 0.5
+cn_table: results/flood_simulation/model_inputs/landuse_cn.csv
+rainfall_table: results/flood_simulation/model_inputs/rainfall_parameters.csv
+model_inputs: results/flood_simulation/model_inputs
+archive: results/flood_simulation
+image: deltares/sfincs-cpu:sfincs-v2.4.0-Galibier-Release
+threads: 8
+max_concurrent: 2
+default_cities:
+- zhengzhou
+- hangzhou
+- fuzhou
+- chengdu
+- wuhan
+cities:
+  zhengzhou:
+    city: zhengzhou
+    epsg: 32649
+    sources:
+      study_area: results/analysis/prepared/zhengzhou/study_area.shp
+      dem: results/analysis/prepared/zhengzhou/dem.tif
+      landuse: results/analysis/prepared/zhengzhou/landuse.tif
+  hangzhou:
+    city: hangzhou
+    epsg: 32651
+    sources:
+      study_area: results/analysis/prepared/hangzhou/study_area.shp
+      dem: results/analysis/prepared/hangzhou/dem.tif
+      landuse: results/analysis/prepared/hangzhou/landuse.tif
+  fuzhou:
+    city: fuzhou
+    epsg: 32650
+    sources:
+      study_area: results/analysis/prepared/fuzhou/study_area.shp
+      dem: results/analysis/prepared/fuzhou/dem.tif
+      landuse: results/analysis/prepared/fuzhou/landuse.tif
+  chengdu:
+    city: chengdu
+    epsg: 32648
+    sources:
+      study_area: results/analysis/prepared/chengdu/study_area.shp
+      dem: results/analysis/prepared/chengdu/dem.tif
+      landuse: results/analysis/prepared/chengdu/landuse.tif
+  wuhan:
+    city: wuhan
+    epsg: 32650
+    sources:
+      study_area: results/analysis/prepared/wuhan/study_area.shp
+      dem: results/analysis/prepared/wuhan/dem.tif
+      landuse: results/analysis/prepared/wuhan/landuse.tif

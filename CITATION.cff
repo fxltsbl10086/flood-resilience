@@ -1,0 +1,8 @@
+cff-version: 1.2.0
+message: "When citing this replication package, cite the accompanying manuscript and the archived release."
+title: "Flood resilience replication materials"
+type: software
+authors:
+  - name: "Flood Resilience research team"
+version: "V1113-local"
+

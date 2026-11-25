@@ -1,0 +1,17 @@
+# Each plotting module preserves its figure-specific scientific layout.
+figure_defaults:
+  font_family:
+    - Times New Roman
+    - STIXGeneral
+    - Liberation Serif
+    - DejaVu Serif
+  dpi: 600
+  preview_dpi: 180
+figures:
+  fig2:
+    crop_bottom_px: 208
+  fig4:
+    map_period: 50
+  S6:
+    band_definition: pointwise_95_percent_interval
+

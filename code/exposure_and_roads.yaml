@@ -1,0 +1,88 @@
+city_order:
+- zhengzhou
+- hangzhou
+- fuzhou
+- chengdu
+- wuhan
+road_flood:
+  paths:
+    road_root: results/analysis/road_topology
+    depth_root: results/flood_simulation
+    boundary_root: results/analysis/prepared
+    output_root: results/analysis/recomputed/roads
+    matching_root: results/analysis/recomputed/road_matching
+  roads:
+    facility_file: 01-01__split_and_merged_road_segments.gpkg
+    facility_layer: road_facilities
+    edge_file: 01-03__directed_routing_edges.gpkg
+    edge_layer: routing_edges
+    write_edges: true
+  scenarios:
+    return_periods:
+    - 10
+    - 20
+    - 50
+    - 100
+    - 200
+    scenario_template: T{period:03d}_D12mmh
+    depth_file: max_depth_land_study_area_m.tif
+  matching:
+    threshold_m: 0.3
+    positive_length_tolerance_m: 1.0e-06
+    cell_batch_size: 20000
+    candidate_rule: all_study_cells
+  missing_policy:
+    water_mask: 0
+    study_scope_mask: 0
+    missing_domain: 0
+    unclassified_nodata: 0
+    outside_raster: 0
+    outside_study: exclude
+  cities:
+    fuzhou:
+      boundary_file: fuzhou/boundary.shp
+    chengdu:
+      boundary_file: chengdu/boundary.shp
+    zhengzhou:
+      boundary_file: zhengzhou/boundary.shp
+    hangzhou:
+      boundary_file: hangzhou/boundary.shp
+    wuhan:
+      boundary_file: wuhan/boundary.shp
+topology:
+  spatial:
+    clip_buffer_m: 500.0
+  filter:
+    keep_types:
+    - motorway
+    - motorway_link
+    - trunk
+    - trunk_link
+    - primary
+    - primary_link
+    - secondary
+    - secondary_link
+    - tertiary
+    - tertiary_link
+    - residential
+    min_length_m: 0.5
+  topology:
+    node_precision: 3
+    endpoint_tol_m: 0.2
+    split_snap_tol_m: 0.001
+    unknown_oneway_as: B
+  merge:
+    merge_degree_two: true
+    allow_bridge_ground_endpoint_merge: true
+    require_compatible_oneway: true
+    dominant_attribute_rule: longest_non_bridge_source_osm
+population:
+  periods:
+  - 10
+  - 20
+  - 50
+  - 100
+  - 200
+  depth_threshold_m: 0.3
+  geometry_batch_size: 20000
+  district: Taijiang

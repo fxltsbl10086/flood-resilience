@@ -1,0 +1,29 @@
+name: flood-resilience
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - numpy=2.3.0
+  - pandas=2.3.1
+  - scipy=1.16.3
+  - geopandas=1.0.1
+  - shapely=2.1.0
+  - rasterio=1.4.3
+  - pyogrio=0.10.0
+  - pyproj=3.7.1
+  - matplotlib=3.10.8
+  - xarray
+  - netcdf4
+  - h5netcdf
+  - h5py
+  - pyarrow
+  - pyyaml
+  - openpyxl
+  - statsmodels
+  - pillow
+  - tzdata
+  - kneed
+  - affine
+  - networkx
+  - scikit-learn
+
